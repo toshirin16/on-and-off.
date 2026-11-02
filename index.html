@@ -123,6 +123,15 @@ section{padding-block:clamp(64px,9vw,120px)}
 .movie-words li{padding:4px 12px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--gold-soft)}
 .player{width:min(340px,100%);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(232,196,106,.4),0 0 60px rgba(26,60,255,.35)}
 .player video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.movie-stack{display:flex;flex-direction:column;gap:clamp(56px,8vw,104px)}
+.ep0-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.player-h{width:100%;aspect-ratio:16/9;border-radius:18px}
+.ep-label{margin:0;font-family:var(--f-display);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--pink)}
+.ep-title{margin:0;font-size:var(--step-2);font-weight:700;letter-spacing:.08em;line-height:1.4}
+.ep-meta{margin:0;font-family:var(--f-display);color:var(--gold-soft);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.ep-tag{display:inline-block;margin-right:6px;padding:0 8px;border-radius:999px;border:1px solid var(--pink);color:var(--pink);font-family:var(--f-display);font-size:.72rem;letter-spacing:.12em;line-height:1.7;vertical-align:1px}
+.tl p a{color:var(--gold);margin-left:6px}
+.tl.ep0::before{border-style:dashed}
 
 /* ---------- members ---------- */
 .members-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
@@ -310,7 +319,8 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
 
   <!-- ===== Movie ===== -->
   <section id="movie" class="movie">
-    <div class="wrap movie-grid">
+    <div class="wrap movie-stack">
+    <div class="movie-grid">
       <div class="movie-text">
         <div class="sec-head">
           <h2 class="sec-title">Movie</h2>
@@ -329,6 +339,22 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
           お使いのブラウザでは動画を再生できません。
         </video>
       </div>
+    </div>
+
+    <div class="movie-grid ep0-grid" id="episode0">
+      <div class="movie-text">
+        <p class="ep-label">Episode 0</p>
+        <h3 class="ep-title">はじまりの日</h3>
+        <p class="ep-meta"><time datetime="2024-10-31">2024.10.31</time>　Ks 守口店（現在は閉店）</p>
+        <p>ユニットを組む1年前のハロウィン。オープンマイクで、ギターを弾いてもらったのが二人のはじまりでした。</p>
+      </div>
+      <div class="player player-h">
+        <video controls playsinline preload="metadata" poster="images/halloween_poster.jpg">
+          <source src="movie/halloween_2024.mp4" type="video/mp4">
+          お使いのブラウザでは動画を再生できません。
+        </video>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -368,9 +394,14 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
         <p class="sec-sub">ふたりの歩み</p>
       </div>
       <ol class="timeline">
+        <li class="tl ep0">
+          <time datetime="2024-10-31">2024.10.31</time>
+          <div><h3>Ks 守口店 ハロウィンのオープンマイク</h3><p><span class="ep-tag">Episode 0</span> ユニットを組む1年前。のちの on and off. の二人が、初めて一緒にステージに立った日。<a href="#episode0">映像を見る</a></p></div>
+          <figure class="thumb"><img src="images/halloween_poster.jpg" alt="ハロウィンのオープンマイクで歌う Toshi とギターを弾くメンバー" loading="lazy"></figure>
+        </li>
         <li class="tl">
           <time datetime="2025-07">2025.07</time>
-          <div><h3>ROCK TENROKU オープンマイク</h3><p>二人で初めてステージに立つ。ここからふたりの歌が始まりました。</p></div>
+          <div><h3>ROCK TENROKU オープンマイク</h3><p>二人でオープンマイクに出演。ここからユニットへの歩みが始まりました。</p></div>
         </li>
         <li class="tl">
           <time datetime="2025-11">2025.11</time>
