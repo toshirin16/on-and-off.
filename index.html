@@ -170,6 +170,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 .tile{appearance:none;border:0;padding:0;margin:0;cursor:zoom-in;border-radius:12px;overflow:hidden;background:var(--navy);aspect-ratio:4/3;position:relative}
 .tile.wide{grid-column:span 2;aspect-ratio:auto}
 .tile.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.tile.wide img,.tile.big img{position:absolute;inset:0}
 .tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .tile:hover img{transform:scale(1.04)}
 .tile span{position:absolute;left:10px;bottom:10px;padding:3px 10px;border-radius:999px;background:rgba(6,11,46,.78);font-size:.78rem;color:var(--gold-soft)}
@@ -484,11 +485,12 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
       </div>
       <div class="grid" id="grid-on">
         <button type="button" class="tile big" data-cap="LIVE HOUSE BUBBLE NET"><img src="images/live_bubblenet2.jpg" alt="BUBBLE NET で歌う二人" loading="lazy"><span>BUBBLE NET</span></button>
-        <button type="button" class="tile wide-sm" data-cap="LIVE CAFÉ BAR 11755.（2026.09.22）"><img src="images/live_11755.jpg" alt="11755. のステージで歌う Toshi とギターを弾くメンバー" loading="lazy" style="object-position:50% 45%"><span>11755.</span></button>
+        <button type="button" class="tile" data-cap="LIVE CAFÉ BAR 11755.（2026.09.22）"><img src="images/live_11755.jpg" alt="11755. のステージで歌う Toshi とギターを弾くメンバー" loading="lazy" style="object-position:50% 45%"><span>11755.</span></button>
         <button type="button" class="tile" data-cap="ライブハウス Studio21「Music Lovers」"><img src="images/live_musiclovers.jpg" alt="Music Lovers のステージ" loading="lazy"><span>Music Lovers</span></button>
+        <button type="button" class="tile wide" data-cap="カラオケ・らいぶばー「猫パンチ」"><img src="images/nekopunch_live2.jpg" alt="猫パンチのステージで歌う Toshi とギターを弾くメンバー" loading="lazy" style="object-position:50% 40%"><span>猫パンチ</span></button>
         <button type="button" class="tile" data-cap="深江橋 Ks"><img src="images/live_fukaebashi_ks.jpg" alt="深江橋 Ks のステージ" loading="lazy"><span>深江橋 Ks</span></button>
         <button type="button" class="tile" data-cap="LIVE HOUSE BUBBLE NET"><img src="images/live_bubblenet.jpg" alt="BUBBLE NET で演奏する二人" loading="lazy"><span>BUBBLE NET</span></button>
-        <button type="button" class="tile" data-cap="カラオケ・らいぶばー「猫パンチ」"><img src="images/nekopunch_pair.jpg" alt="猫パンチのステージ前の二人" loading="lazy"><span>猫パンチ</span></button>
+        <button type="button" class="tile wide" data-cap="カラオケ・らいぶばー「猫パンチ」"><img src="images/nekopunch_pair.jpg" alt="猫パンチのステージ前の二人" loading="lazy"><span>猫パンチ</span></button>
       </div>
       <div class="grid" id="grid-off" hidden>
         <button type="button" class="tile wide" data-cap="11755. の前で"><img src="images/cafe_twoshot.jpg" alt="カフェの前で手を振る二人" loading="lazy" style="object-position:50% 40%"><span>11755.</span></button>
