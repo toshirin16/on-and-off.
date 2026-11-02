@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>on and off.</title>
+<link rel="icon" type="image/png" href="images/favicon.png?v=2">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
+<meta name="description" content="on and off.（オンアンドオフ）は、ボーカルとギターの二人で歌うアコースティックユニット。2025年11月プレデビュー、大阪・奈良を中心に活動中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap">
+<style>
+/* Layout: 夜のライブハウス。ロゴの「青・ゴールド・ピンクの点」をそのまま全体のルールにする。
+   見出しは英語＋ピンクの点（ロゴの "off." の点）、本文は丸ゴシック。1ページを縦に流す。 */
+:root{
+  --night:#060b2e;      /* 背景：ロゴの青をいちばん暗くした色 */
+  --navy:#0b1450;       /* 面・カード */
+  --royal:#1a3cff;      /* ロゴのグラデーションの明るい側 */
+  --gold:#e8c46a;       /* ロゴ文字 */
+  --gold-soft:#f4e2ad;
+  --pink:#ff1aa8;       /* ロゴの点 */
+  --text:#eef0fb;
+  --muted:#aab1da;
+  --line:rgba(232,196,106,.32);
+  --f-display:"Jost","Futura","Century Gothic","Avenir Next",sans-serif;
+  --f-body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
+  --step--1:clamp(.8rem,.78rem + .1vw,.86rem);
+  --step-0:clamp(.95rem,.92rem + .15vw,1.03rem);
+  --step-1:clamp(1.15rem,1.05rem + .4vw,1.35rem);
+  --step-2:clamp(1.5rem,1.3rem + 1vw,2.1rem);
+  --step-3:clamp(2.2rem,1.7rem + 2.4vw,3.6rem);
+  --radius:14px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{
+  margin:0;background:var(--night);color:var(--text);
+  font-family:var(--f-body);font-size:var(--step-0);line-height:1.85;letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+img{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(6,11,46,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,196,106,.14)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.nav-logo{flex:none;display:block;width:118px}
+.nav nav{min-width:0;margin-left:auto}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:block;padding:8px 10px;font-family:var(--f-display);font-size:.92rem;letter-spacing:.06em;text-decoration:none;color:var(--muted);white-space:nowrap;border-radius:8px;transition:color .2s}
+.nav a:hover{color:var(--gold-soft)}
+
+/* ---------- section scaffolding ---------- */
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:clamp(28px,4vw,48px)}
+.sec-title{margin:0;font-family:var(--f-display);font-weight:300;font-size:var(--step-3);line-height:1.05;letter-spacing:.02em;color:var(--gold);text-wrap:balance}
+.sec-title::after{content:"";display:inline-block;width:.2em;height:.2em;margin-left:.08em;border-radius:50%;background:var(--pink);vertical-align:baseline}
+.sec-sub{margin:0;color:var(--muted);font-size:var(--step--1);letter-spacing:.12em}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(40px,6vw,88px) clamp(56px,8vw,104px);
+  background:
+    radial-gradient(60% 70% at 85% 10%,rgba(26,60,255,.55),transparent 70%),
+    radial-gradient(50% 60% at 0% 100%,rgba(26,60,255,.22),transparent 70%),
+    var(--night)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.eyebrow{margin:0;font-family:var(--f-display);font-size:var(--step--1);letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.hero h1{margin:0}
+.hero h1 img{width:min(100%,560px)}
+.catch{margin:0;font-size:var(--step-2);font-weight:700;letter-spacing:.08em;line-height:1.5}
+.lead{margin:0;color:var(--muted);max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-family:var(--f-body);font-weight:700;font-size:.95rem;text-decoration:none;border:1px solid var(--gold);transition:background .2s,color .2s,transform .2s}
+.btn-gold{background:var(--gold);color:var(--night)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-line{color:var(--gold)}
+.btn-line:hover{background:rgba(232,196,106,.12);transform:translateY(-2px)}
+.btn .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);flex:none}
+
+.hero-art{position:relative;justify-self:center;width:min(100%,480px)}
+.hero-art .frame{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(232,196,106,.35)}
+.hero-art .arc{position:absolute;left:-10%;top:-6%;width:120%;height:112%;z-index:2;pointer-events:none;overflow:visible}
+.hero-art .arc path{fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1000;stroke-dashoffset:0;animation:draw 2.2s ease-out both}
+.hero-art .arc path:nth-child(2){animation-delay:.5s}
+@keyframes draw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+.badge{position:absolute;z-index:3;left:-14px;bottom:28px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:var(--night);border:1px solid var(--line);font-family:var(--f-display);font-size:.9rem;letter-spacing:.08em;color:var(--gold-soft);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.badge .dot{width:9px;height:9px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(255,26,168,.6);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,26,168,.55)}70%{box-shadow:0 0 0 12px rgba(255,26,168,0)}100%{box-shadow:0 0 0 0 rgba(255,26,168,0)}}
+.hero-copy > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}.hero-copy > *:nth-child(3){animation-delay:.16s}
+.hero-copy > *:nth-child(4){animation-delay:.24s}.hero-copy > *:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.about-text{min-width:0;display:flex;flex-direction:column;gap:18px;max-width:34em}
+.about-text p{margin:0}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:10px 0 0;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.facts div{background:var(--night);padding:14px 12px;display:flex;flex-direction:column;gap:2px}
+.facts dt{font-family:var(--f-display);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--f-display);font-size:1.05rem;color:var(--gold-soft);font-variant-numeric:tabular-nums}
+.about-photos{position:relative;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto;min-width:0}
+.about-photos figure{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.about-photos .p1{grid-column:1 / 9;grid-row:1 / 3;aspect-ratio:1007/1200}
+.about-photos .p2{grid-column:7 / 13;grid-row:2 / 3;align-self:end;margin-bottom:-36px;aspect-ratio:1049/1088;outline:6px solid var(--night)}
+.about-photos img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- movie ---------- */
+.movie{background:linear-gradient(180deg,var(--night),var(--navy) 50%,var(--night))}
+.movie-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(32px,5vw,80px);align-items:center}
+.movie-text{display:flex;flex-direction:column;gap:16px;min-width:0;max-width:30em}
+.movie-text p{margin:0}
+.movie-words{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.movie-words li{padding:4px 12px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--gold-soft)}
+.player{width:min(340px,100%);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(232,196,106,.4),0 0 60px rgba(26,60,255,.35)}
+.player video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+
+/* ---------- members ---------- */
+.members-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
+.member{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);background:var(--navy);border:1px solid rgba(232,196,106,.18);border-radius:var(--radius);overflow:hidden}
+.member figure{margin:0;aspect-ratio:3/4}
+.member img{width:100%;height:100%;object-fit:cover}
+.member-body{padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.role{margin:0;font-family:var(--f-display);font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--pink)}
+.member h3{margin:0;font-size:var(--step-1);font-weight:700;letter-spacing:.06em}
+.member p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* ---------- history ---------- */
+.timeline{list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:clamp(22px,3vw,32px)}
+.timeline::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--gold),rgba(232,196,106,.15))}
+.tl{position:relative;display:grid;grid-template-columns:116px minmax(0,1fr) auto;gap:8px 24px;align-items:start;padding-left:38px}
+.tl::before{content:"";position:absolute;left:1px;top:9px;width:13px;height:13px;border-radius:50%;background:var(--night);border:2px solid var(--gold)}
+.tl time{font-family:var(--f-display);font-size:1.15rem;letter-spacing:.06em;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1.5}
+.tl h3{margin:0;font-size:1.05rem;font-weight:700;line-height:1.6}
+.tl p{margin:2px 0 0;color:var(--muted);font-size:.93rem}
+.tl .thumb{width:132px;aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid rgba(232,196,106,.25)}
+.tl .thumb img{width:100%;height:100%;object-fit:cover}
+.tl.now::before{background:var(--pink);border-color:var(--pink);animation:pulse 2.4s ease-out infinite}
+.tl.now time{color:var(--pink)}
+.tl.now h3{font-family:var(--f-display);font-weight:400;font-size:1.5rem;letter-spacing:.06em;color:var(--gold-soft)}
+
+/* ---------- gallery ---------- */
+.gallery-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px;margin-bottom:clamp(28px,4vw,40px)}
+.gallery-head .sec-head{margin:0}
+.switch{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;background:var(--navy);border:1px solid var(--line)}
+.switch button{position:relative;z-index:1;appearance:none;border:0;background:none;padding:10px 20px;border-radius:999px;font-family:var(--f-display);font-size:.95rem;letter-spacing:.1em;color:var(--muted);cursor:pointer;transition:color .25s}
+.switch button[aria-pressed="true"]{color:var(--night)}
+.switch .knob{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:var(--gold);transition:transform .35s cubic-bezier(.3,.8,.2,1)}
+.switch[data-mode="off"] .knob{transform:translateX(100%);background:var(--pink)}
+.switch[data-mode="off"] button[aria-pressed="true"]{color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tile{appearance:none;border:0;padding:0;margin:0;cursor:zoom-in;border-radius:12px;overflow:hidden;background:var(--navy);aspect-ratio:4/3;position:relative}
+.tile.wide{grid-column:span 2;aspect-ratio:auto}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile span{position:absolute;left:10px;bottom:10px;padding:3px 10px;border-radius:999px;background:rgba(6,11,46,.78);font-size:.78rem;color:var(--gold-soft)}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh;color:var(--text)}
+.lightbox::backdrop{background:rgba(3,6,24,.88)}
+.lightbox img{max-height:82vh;width:auto;margin:auto;border-radius:12px}
+.lightbox .lb-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px}
+.lightbox p{margin:0;font-size:.9rem;color:var(--gold-soft)}
+.lb-close{appearance:none;border:1px solid var(--line);background:var(--navy);color:var(--text);border-radius:999px;padding:8px 18px;font-family:var(--f-body);cursor:pointer}
+
+/* ---------- live ---------- */
+.ticket{display:grid;grid-template-columns:minmax(0,1fr) 200px;background:var(--gold);color:var(--night);border-radius:18px;overflow:hidden;position:relative}
+.ticket-main{padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:16px;min-width:0}
+.ticket .kind{margin:0;font-family:var(--f-display);font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.8rem}
+.ticket h3{margin:0;font-size:var(--step-2);line-height:1.4;letter-spacing:.06em}
+.ticket dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;border-top:1px dashed rgba(6,11,46,.35);padding-top:14px}
+.ticket dt{font-family:var(--f-display);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;opacity:.7}
+.ticket dd{margin:0;font-family:var(--f-display);font-size:1.1rem;font-variant-numeric:tabular-nums}
+.ticket dd .venue-area{display:block;font-family:var(--f-body);font-size:.75rem;opacity:.75}
+.ticket-stub{border-left:2px dashed rgba(6,11,46,.4);padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;background:var(--gold-soft)}
+.ticket-stub img{width:140px;filter:brightness(.25) saturate(0)}
+.ticket-stub small{font-family:var(--f-display);letter-spacing:.2em;font-size:.72rem}
+.ticket::before,.ticket::after{content:"";position:absolute;right:189px;width:22px;height:22px;border-radius:50%;background:var(--night)}
+.ticket::before{top:-11px}.ticket::after{bottom:-11px}
+.live-note{margin:18px 0 0;color:var(--muted);font-size:.93rem}
+
+/* ---------- contact ---------- */
+.contact{background:radial-gradient(70% 90% at 50% 120%,rgba(26,60,255,.45),transparent 70%),var(--night)}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
+.panel{background:var(--navy);border:1px solid rgba(232,196,106,.18);border-radius:var(--radius);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:1.3rem;letter-spacing:.08em;color:var(--gold)}
+.panel p{margin:0;color:var(--muted);font-size:.93rem}
+.sns{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.sns a,.sns span.pending{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);text-decoration:none;font-family:var(--f-display);letter-spacing:.06em}
+.sns a:hover{background:rgba(232,196,106,.1)}
+.sns small{font-family:var(--f-body);color:var(--muted);font-size:.8rem}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail code{font-family:var(--f-display);font-size:1.05rem;color:var(--gold-soft);user-select:all;word-break:break-all}
+
+/* ---------- footer ---------- */
+footer{padding-block:48px calc(40px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(232,196,106,.14)}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+footer img{width:150px}
+footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08em}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero-grid,.about-grid,.movie-grid{grid-template-columns:1fr}
+  .hero-art{width:min(100%,420px)}
+  .movie-grid{justify-items:center}
+  .movie-text{text-align:left;justify-self:stretch}
+  .members-grid,.contact-grid{grid-template-columns:1fr}
+  .about-photos{max-width:520px;margin-bottom:36px}
+}
+@media (max-width:640px){
+  .nav-logo{width:96px}
+  .nav .wrap{gap:10px}
+  .member{grid-template-columns:1fr}
+  .member figure{aspect-ratio:4/3}
+  .member img{object-position:50% 20%}
+  .tl{grid-template-columns:minmax(0,1fr);gap:4px}
+  .tl .thumb{width:min(100%,260px);margin-top:8px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid .tile.wide-sm{grid-column:span 2}
+  .grid .tile.wide{aspect-ratio:4/3}
+  .ticket{grid-template-columns:1fr}
+  .ticket-stub{border-left:0;border-top:2px dashed rgba(6,11,46,.4);flex-direction:row;padding:16px}
+  .ticket-stub img{width:110px}
+  .ticket::before,.ticket::after{display:none}
+  .ticket dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:1fr 1fr 1fr}
+  .badge{left:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#top" aria-label="on and off. トップへ"><img src="images/logo_mark.png" alt="on and off." width="900" height="284"></a>
+    <nav aria-label="ページ内メニュー">
+      <ul>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#movie">Movie</a></li>
+        <li><a href="#members">Members</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#live">Live</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-label="トップ">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Acoustic unit · Osaka / Nara</p>
+        <h1><img src="images/logo_mark.png" alt="on and off." width="900" height="284"></h1>
+        <p class="catch">これからも、ふたりで。</p>
+        <p class="lead">ボーカルとギター、二人で歌うアコースティックユニット。2025年11月にプレデビューし、大阪・奈良のライブハウスやカフェで歌っています。</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="#movie"><span class="dot"></span>1周年ムービーを見る</a>
+          <a class="btn btn-line" href="#live">ライブ情報</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="frame">
+          <img src="images/hero_illust.jpg" alt="ライブハウスで歌うボーカルとギターを弾くメンバーのイラスト" width="1180" height="1333">
+        </div>
+        <svg class="arc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 30 4 A 48 48 0 0 1 97 30" pathLength="1000"/>
+          <path d="M 70 97 A 48 48 0 0 1 3 70" pathLength="1000"/>
+        </svg>
+        <p class="badge"><span class="dot"></span>1st Anniversary 2026.11</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About us ===== -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-text">
+        <div class="sec-head">
+          <h2 class="sec-title">About us</h2>
+          <p class="sec-sub">わたしたちについて</p>
+        </div>
+        <p>on and off.（オンアンドオフ）は、ボーカルとギターの二人で歌うアコースティックユニットです。</p>
+        <p>オープンマイクで二人で歌いはじめ、2025年11月にカラオケ・らいぶばー「猫パンチ」でプレデビュー。そこから大阪・奈良のライブハウスやカフェで、ひとつずつステージを重ねてきました。</p>
+        <p>ステージの数だけ出会いがあり、たくさん笑って、たくさんの仲間に支えられた1年。二人三脚で、これからも歌っていきます。</p>
+        <dl class="facts">
+          <div><dt>Pre-debut</dt><dd>2025.11</dd></div>
+          <div><dt>Style</dt><dd>Vo. &amp; Gt.</dd></div>
+          <div><dt>Area</dt><dd>Osaka / Nara</dd></div>
+        </dl>
+      </div>
+      <div class="about-photos">
+        <figure class="p1"><img src="images/about_illust.jpg" alt="制服姿で手を振る二人のイラスト" loading="lazy" width="1007" height="1200"></figure>
+        <figure class="p2"><img src="images/cafe_twoshot.jpg" alt="カフェの前で手を振る二人" loading="lazy" width="1049" height="1088"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Movie ===== -->
+  <section id="movie" class="movie">
+    <div class="wrap movie-grid">
+      <div class="movie-text">
+        <div class="sec-head">
+          <h2 class="sec-title">Movie</h2>
+          <p class="sec-sub">1st Anniversary Movie</p>
+        </div>
+        <p>プレデビューから1年。歩いてきたステージを、54秒のムービーにまとめました。</p>
+        <ul class="movie-words" aria-label="ムービーのことば">
+          <li>ふたりの歌が、始まった。</li>
+          <li>ステージの数だけ、出会いがあった</li>
+          <li>二人三脚の1年</li>
+        </ul>
+      </div>
+      <div class="player">
+        <video controls playsinline preload="metadata" poster="images/movie_poster.jpg">
+          <source src="movie/pr_movie.mp4" type="video/mp4">
+          お使いのブラウザでは動画を再生できません。
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Members ===== -->
+  <section id="members">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Members</h2>
+        <p class="sec-sub">メンバー</p>
+      </div>
+      <div class="members-grid">
+        <article class="member">
+          <figure><img src="images/member_vocal.jpg" alt="ボーカルのメンバー" loading="lazy" width="720" height="960"></figure>
+          <div class="member-body">
+            <p class="role">Vocal</p>
+            <h3>［お名前］<!-- TODO: ボーカルの名前 --></h3>
+            <p>［ひとこと］<!-- TODO: ボーカルのひとことプロフィール --></p>
+          </div>
+        </article>
+        <article class="member">
+          <figure><img src="images/member_guitar.jpg" alt="ギターのメンバー" loading="lazy" width="720" height="960"></figure>
+          <div class="member-body">
+            <p class="role">Guitar</p>
+            <h3>［お名前］<!-- TODO: ギターの名前 --></h3>
+            <p>［ひとこと］<!-- TODO: ギターのひとことプロフィール --></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== History ===== -->
+  <section id="history">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">History</h2>
+        <p class="sec-sub">ふたりの歩み</p>
+      </div>
+      <ol class="timeline">
+        <li class="tl">
+          <time datetime="2025-07">2025.07</time>
+          <div><h3>ROCK TENROKU オープンマイク</h3><p>二人で初めてステージに立つ。ここからふたりの歌が始まりました。</p></div>
+        </li>
+        <li class="tl">
+          <time datetime="2025-11">2025.11</time>
+          <div><h3>カラオケ・らいぶばー「猫パンチ」</h3><p>初ライブ。on and off. としてプレデビュー。</p></div>
+          <figure class="thumb"><img src="images/nekopunch_pair.jpg" alt="猫パンチのステージ前に立つ二人" loading="lazy"></figure>
+        </li>
+        <li class="tl">
+          <time datetime="2026-03">2026.03</time>
+          <div><h3>深江橋 Ks</h3><p>ライブ出演。</p></div>
+          <figure class="thumb"><img src="images/live_fukaebashi_ks.jpg" alt="深江橋 Ks で演奏する二人" loading="lazy"></figure>
+        </li>
+        <li class="tl">
+          <time datetime="2026-04">2026.04</time>
+          <div><h3>LIVE HOUSE BUBBLE NET</h3><p>ライブ出演。</p></div>
+          <figure class="thumb"><img src="images/live_bubblenet.jpg" alt="BUBBLE NET で演奏する二人" loading="lazy"></figure>
+        </li>
+        <li class="tl">
+          <time datetime="2026-07-04">2026.07.04</time>
+          <div><h3>Pick（奈良）</h3><p>奈良でライブ出演。</p></div>
+          <figure class="thumb"><img src="images/off_selfie2.jpg" alt="Pick でギターの前に並ぶ二人" loading="lazy"></figure>
+        </li>
+        <li class="tl">
+          <time datetime="2026-09">2026.09</time>
+          <div><h3>11755.</h3><p>カフェでライブ。</p></div>
+          <figure class="thumb"><img src="images/cafe_twoshot.jpg" alt="11755. の前で手を振る二人" loading="lazy"></figure>
+        </li>
+        <li class="tl">
+          <time datetime="2026-09">2026.09</time>
+          <div><h3>ライブハウス Studio21「Music Lovers」</h3><p>ライブ出演。</p></div>
+          <figure class="thumb"><img src="images/live_musiclovers.jpg" alt="Music Lovers のステージで演奏する二人" loading="lazy"></figure>
+        </li>
+        <li class="tl now">
+          <time datetime="2026-11">2026.11</time>
+          <div><h3>1st Anniversary</h3><p>プレデビューから1周年。これからも、ふたりで。</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div class="sec-head">
+          <h2 class="sec-title">Gallery</h2>
+          <p class="sec-sub">ステージの顔と、ふだんの顔</p>
+        </div>
+        <div class="switch" id="switch" data-mode="on" role="group" aria-label="写真の切り替え">
+          <span class="knob" aria-hidden="true"></span>
+          <button type="button" id="btn-on" aria-pressed="true" data-mode="on">ON stage</button>
+          <button type="button" id="btn-off" aria-pressed="false" data-mode="off">OFF shot</button>
+        </div>
+      </div>
+      <div class="grid" id="grid-on">
+        <button type="button" class="tile wide" data-cap="LIVE HOUSE BUBBLE NET"><img src="images/live_bubblenet2.jpg" alt="BUBBLE NET で歌う二人" loading="lazy"><span>BUBBLE NET</span></button>
+        <button type="button" class="tile" data-cap="ライブハウス Studio21「Music Lovers」"><img src="images/live_musiclovers.jpg" alt="Music Lovers のステージ" loading="lazy"><span>Music Lovers</span></button>
+        <button type="button" class="tile" data-cap="深江橋 Ks"><img src="images/live_fukaebashi_ks.jpg" alt="深江橋 Ks のステージ" loading="lazy"><span>深江橋 Ks</span></button>
+        <button type="button" class="tile" data-cap="LIVE HOUSE BUBBLE NET"><img src="images/live_bubblenet.jpg" alt="BUBBLE NET で演奏する二人" loading="lazy"><span>BUBBLE NET</span></button>
+        <button type="button" class="tile" data-cap="カラオケ・らいぶばー「猫パンチ」"><img src="images/nekopunch_pair.jpg" alt="猫パンチのステージ前の二人" loading="lazy"><span>猫パンチ</span></button>
+      </div>
+      <div class="grid" id="grid-off" hidden>
+        <button type="button" class="tile wide-sm" data-cap="11755. の前で"><img src="images/cafe_twoshot.jpg" alt="カフェの前で手を振る二人" loading="lazy" style="object-position:50% 40%"><span>11755.</span></button>
+        <button type="button" class="tile" data-cap="Pick（奈良）で"><img src="images/off_selfie2.jpg" alt="ギターの前で並ぶ二人" loading="lazy"><span>Pick</span></button>
+        <button type="button" class="tile" data-cap="リハーサルの合間に"><img src="images/off_selfie1.jpg" alt="自撮りする二人" loading="lazy" style="object-position:50% 30%"><span>Off shot</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Live ===== -->
+  <section id="live">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Live</h2>
+        <p class="sec-sub">ライブ情報</p>
+      </div>
+      <!-- TODO: OPEN / START の時間が決まったら「TBA」を書き換える。次のライブの時は h3 と DATE / VENUE も書き換える -->
+      <article class="ticket">
+        <div class="ticket-main">
+          <p class="kind">Next Live</p>
+          <h3>12月20日（日）猫パンチでライブ！</h3>
+          <dl>
+            <div><dt>Date</dt><dd>2026.12.20 Sun</dd></div>
+            <div><dt>Venue</dt><dd>猫パンチ<small class="venue-area">西中島南方</small></dd></div>
+            <div><dt>Open</dt><dd>TBA</dd></div>
+            <div><dt>Start</dt><dd>TBA</dd></div>
+          </dl>
+        </div>
+        <div class="ticket-stub">
+          <img src="images/logo_mark.png" alt="" width="900" height="284">
+          <small>ADMIT TWO</small>
+        </div>
+      </article>
+      <p class="live-note">出演のご依頼・ご相談は、下の Contact からお気軽にどうぞ。</p>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Contact</h2>
+        <p class="sec-sub">SNS・お問い合わせ</p>
+      </div>
+      <div class="contact-grid">
+        <div class="panel">
+          <h3>SNS</h3>
+          <p>ライブの最新情報はSNSでお知らせしています。</p>
+          <!-- TODO: URL が決まったら span.pending を <a href="URL" target="_blank" rel="noopener"> に置き換える -->
+          <ul class="sns">
+            <li><span class="pending">Instagram <small>［URL］</small></span></li>
+            <li><span class="pending">YouTube <small>［URL］</small></span></li>
+            <li><span class="pending">X <small>［URL］</small></span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Mail</h3>
+          <p>出演のご依頼・お問い合わせはこちらへ。</p>
+          <div class="mail">
+            <code id="mail">［メールアドレス］</code><!-- TODO: メールアドレス -->
+            <button type="button" class="lb-close" id="copy">コピー</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="images/logo_mark.png" alt="on and off." width="900" height="284" loading="lazy">
+    <small>© 2026 on and off.</small>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lb" aria-label="写真の拡大表示">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><p id="lb-cap"></p><button type="button" class="lb-close" id="lb-close">閉じる</button></div>
+</dialog>
+
+<script>
+(function(){
+  // Gallery: ON stage / OFF shot
+  var sw=document.getElementById('switch');
+  var on=document.getElementById('grid-on'), off=document.getElementById('grid-off');
+  sw.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    var m=b.dataset.mode; sw.dataset.mode=m;
+    sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    on.hidden=(m!=='on'); off.hidden=(m!=='off');
+  });
+  // Lightbox
+  var lb=document.getElementById('lb'), li=document.getElementById('lb-img'), lc=document.getElementById('lb-cap');
+  document.querySelectorAll('.tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      var img=t.querySelector('img'); li.src=img.currentSrc||img.src; li.alt=img.alt; lc.textContent=t.dataset.cap||'';
+      if(lb.showModal){lb.showModal();}else{lb.setAttribute('open','');}
+    });
+  });
+  function close(){ if(lb.close){lb.close();}else{lb.removeAttribute('open');} }
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  // Copy mail
+  var cp=document.getElementById('copy'), mail=document.getElementById('mail');
+  cp.addEventListener('click',function(){
+    var txt=mail.textContent.trim();
+    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){cp.textContent='コピーしました';setTimeout(function(){cp.textContent='コピー';},1800);},sel);
+    }else{sel();}
+  });
+})();
+</script>
+</body>
+</html>
