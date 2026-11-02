@@ -15,4 +15,4 @@
 - 見出し：英語＋最後にピンクの点（ロゴの "off." の点）
 - 書体：英語 Jost、日本語 Zen Maru Gothic（Google Fonts）
 - Gallery は「ON stage / OFF shot」の切り替え（ユニット名にかけている）
-- ファビコンを差し替えたときは、index.html の favicon.png?v=2 の数字を1つ増やすとブラウザの古い表示が消える
+- ファビコンを差し替えたときは、index.html の favicon の ?v=3 の数字を1つ増やすとブラウザの古い表示が消える
