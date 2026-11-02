@@ -193,6 +193,12 @@ section{padding-block:clamp(64px,9vw,120px)}
 .ticket-stub small{font-family:var(--f-display);letter-spacing:.2em;font-size:.72rem}
 .ticket::before,.ticket::after{content:"";position:absolute;right:189px;width:22px;height:22px;border-radius:50%;background:var(--night)}
 .ticket::before{top:-11px}.ticket::after{bottom:-11px}
+.tickets{display:flex;flex-direction:column;gap:20px}
+.ticket-alt{background:var(--navy);color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.ticket-alt .kind{color:var(--gold)}
+.ticket-alt dl{border-top-color:var(--line)}
+.ticket-alt .ticket-stub{background:rgba(232,196,106,.08);border-color:var(--line);color:var(--gold-soft)}
+.ticket-alt .ticket-stub img{filter:none}
 .live-note{margin:18px 0 0;color:var(--muted);font-size:.93rem}
 
 /* ---------- contact ---------- */
@@ -498,10 +504,27 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
         <h2 class="sec-title">Live</h2>
         <p class="sec-sub">ライブ情報</p>
       </div>
-      <!-- TODO: OPEN / START の時間が決まったら「TBA」を書き換える。次のライブの時は h3 と DATE / VENUE も書き換える -->
+      <!-- TODO: OPEN / START の時間が決まったら「TBA」を書き換える。終わった予定は article ごと消す -->
+      <div class="tickets">
+      <article class="ticket ticket-alt">
+        <div class="ticket-main">
+          <p class="kind">Open Mic ・ 予定</p>
+          <h3>11月22日（日）BUBBLE NET のオープンマイクに出演予定</h3>
+          <dl>
+            <div><dt>Date</dt><dd>2026.11.22 Sun</dd></div>
+            <div><dt>Venue</dt><dd>BUBBLE NET<small class="venue-area">LIVE HOUSE</small></dd></div>
+            <div><dt>Open</dt><dd>TBA</dd></div>
+            <div><dt>Start</dt><dd>TBA</dd></div>
+          </dl>
+        </div>
+        <div class="ticket-stub">
+          <img src="images/logo_mark.png" alt="" width="900" height="284">
+          <small>OPEN MIC</small>
+        </div>
+      </article>
       <article class="ticket">
         <div class="ticket-main">
-          <p class="kind">Next Live</p>
+          <p class="kind">Live</p>
           <h3>12月20日（日）猫パンチでライブ！</h3>
           <dl>
             <div><dt>Date</dt><dd>2026.12.20 Sun</dd></div>
@@ -515,6 +538,7 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
           <small>ADMIT TWO</small>
         </div>
       </article>
+      </div>
       <p class="live-note">出演のご依頼・ご相談は、下の Contact からお気軽にどうぞ。</p>
     </div>
   </section>
