@@ -171,6 +171,11 @@ section{padding-block:clamp(64px,9vw,120px)}
 .tile.wide{grid-column:span 2;aspect-ratio:auto}
 .tile.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
 .tile.wide img,.tile.big img{position:absolute;inset:0}
+.friends{margin-top:clamp(56px,8vw,96px);padding-top:clamp(40px,6vw,64px);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:24px}
+.friends-head{display:flex;flex-direction:column;gap:10px;max-width:36em}
+.friends-head p:last-child{margin:0;color:var(--muted)}
+.friends-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.friends-grid{grid-template-columns:1fr}}
 .tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .tile:hover img{transform:scale(1.04)}
 .tile span{position:absolute;left:10px;bottom:10px;padding:3px 10px;border-radius:999px;background:rgba(6,11,46,.78);font-size:.78rem;color:var(--gold-soft)}
@@ -466,6 +471,19 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
           <div><h3>1st Anniversary</h3><p>プレデビューから1周年。これからも、ふたりで。</p></div>
         </li>
       </ol>
+
+      <div class="friends">
+        <div class="friends-head">
+          <p class="ep-label">Friends</p>
+          <h3 class="ep-title">ステージの数だけ、出会いがあった</h3>
+          <p>一緒にステージに立った仲間、聴きに来てくれたみなさん。たくさんの出会いに支えられた1年でした。</p>
+        </div>
+        <div class="friends-grid">
+          <button type="button" class="tile" data-cap="カラオケ・らいぶばー「猫パンチ」のみなさんと"><img src="images/group_nekopunch.jpg" alt="猫パンチで出演者のみなさんと猫のポーズで集合写真" loading="lazy"><span>猫パンチ</span></button>
+          <button type="button" class="tile" data-cap="2025.07.13 オープンマイクのみなさんと"><img src="images/group_2025_07_13.jpg" alt="オープンマイクの出演者のみなさんと集合写真" loading="lazy"><span>2025.07.13</span></button>
+          <button type="button" class="tile" data-cap="LIVE CAFÉ BAR 11755. ブッキングライブのみなさんと（2026.09.22）"><img src="images/group_11755.jpg" alt="11755. のブッキングライブ出演者のみなさんと集合写真" loading="lazy"><span>11755.</span></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -488,7 +506,7 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
         <button type="button" class="tile" data-cap="LIVE CAFÉ BAR 11755.（2026.09.22）"><img src="images/live_11755.jpg" alt="11755. のステージで歌う Toshi とギターを弾くメンバー" loading="lazy" style="object-position:50% 45%"><span>11755.</span></button>
         <button type="button" class="tile" data-cap="ライブハウス Studio21「Music Lovers」"><img src="images/live_musiclovers.jpg" alt="Music Lovers のステージ" loading="lazy"><span>Music Lovers</span></button>
         <button type="button" class="tile wide" data-cap="カラオケ・らいぶばー「猫パンチ」"><img src="images/nekopunch_live2.jpg" alt="猫パンチのステージで歌う Toshi とギターを弾くメンバー" loading="lazy" style="object-position:50% 40%"><span>猫パンチ</span></button>
-        <button type="button" class="tile" data-cap="深江橋 Ks"><img src="images/live_fukaebashi_ks.jpg" alt="深江橋 Ks のステージ" loading="lazy"><span>深江橋 Ks</span></button>
+        <button type="button" class="tile" data-cap="深江橋 Ks オープンマイク"><img src="images/live_fukaebashi_ks.jpg" alt="深江橋 Ks のオープンマイクで歌う二人" loading="lazy"><span>深江橋 Ks</span></button>
         <button type="button" class="tile" data-cap="LIVE HOUSE BUBBLE NET"><img src="images/live_bubblenet.jpg" alt="BUBBLE NET で演奏する二人" loading="lazy"><span>BUBBLE NET</span></button>
         <button type="button" class="tile wide" data-cap="カラオケ・らいぶばー「猫パンチ」"><img src="images/nekopunch_pair.jpg" alt="猫パンチのステージ前の二人" loading="lazy"><span>猫パンチ</span></button>
       </div>
