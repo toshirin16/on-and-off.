@@ -167,6 +167,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 .switch[data-mode="off"] .knob{transform:translateX(100%);background:var(--pink)}
 .switch[data-mode="off"] button[aria-pressed="true"]{color:#fff}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tile{appearance:none;border:0;padding:0;margin:0;cursor:zoom-in;border-radius:12px;overflow:hidden;background:var(--navy);aspect-ratio:4/3;position:relative}
 .tile.wide{grid-column:span 2;aspect-ratio:auto}
 .tile.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
@@ -504,9 +505,7 @@ footer small{color:var(--muted);font-family:var(--f-display);letter-spacing:.08e
         <button type="button" class="tile" data-cap="深江橋 Ks オープンマイク"><img src="images/live_fukaebashi_ks.jpg" alt="深江橋 Ks のオープンマイクで歌う二人" loading="lazy"><span>深江橋 Ks</span></button>
         <button type="button" class="tile wide-sm" data-cap="LIVE HOUSE BUBBLE NET"><img src="images/live_bubblenet.jpg" alt="BUBBLE NET で演奏する二人" loading="lazy"><span>BUBBLE NET</span></button>
       </div>
-      <div class="grid" id="grid-off" hidden>
-        <button type="button" class="tile" data-cap="11755. の前で"><img src="images/cafe_twoshot.jpg" alt="カフェの前で手を振る二人" loading="lazy" style="object-position:50% 30%"><span>11755.</span></button>
-        <button type="button" class="tile" data-cap="Pick（奈良）で"><img src="images/off_selfie2.jpg" alt="ギターの前で並ぶ二人" loading="lazy"><span>Pick</span></button>
+      <div class="grid grid-2" id="grid-off" hidden>
         <button type="button" class="tile" data-cap="カラオケ・らいぶばー「猫パンチ」の前で"><img src="images/nekopunch_pair.jpg" alt="猫パンチのステージ前で手を広げる二人" loading="lazy" style="object-position:50% 25%"><span>猫パンチ</span></button>
         <button type="button" class="tile" data-cap="リハーサルの合間に"><img src="images/off_selfie1.jpg" alt="自撮りする二人" loading="lazy" style="object-position:50% 30%"><span>Off shot</span></button>
         <button type="button" class="tile" data-cap="ふだんの二人"><img src="images/off_everyday.jpg" alt="お店のソファで手を振る二人" loading="lazy" style="object-position:50% 30%"><span>ふだんの二人</span></button>
